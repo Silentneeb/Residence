@@ -6,17 +6,17 @@ package com.bekvon.bukkit.residence;
 
 import com.bekvon.bukkit.residence.chat.ChatChannel;
 import com.bekvon.bukkit.residence.chat.ChatManager;
-import com.bekvon.bukkit.residence.economy.BOSEAdapter;
+//import com.bekvon.bukkit.residence.economy.BOSEAdapter;
 import com.bekvon.bukkit.residence.protection.CuboidArea;
 import com.bekvon.bukkit.residence.protection.LeaseManager;
 import com.bekvon.bukkit.residence.listeners.ResidenceBlockListener;
 import com.bekvon.bukkit.residence.listeners.ResidencePlayerListener;
 import com.bekvon.bukkit.residence.listeners.ResidenceEntityListener;
 import com.bekvon.bukkit.residence.economy.EconomyInterface;
-import com.bekvon.bukkit.residence.economy.EssentialsEcoAdapter;
-import com.bekvon.bukkit.residence.economy.IConomy5Adapter;
-import com.bekvon.bukkit.residence.economy.IConomy6Adapter;
-import com.bekvon.bukkit.residence.economy.RealShopEconomy;
+//import com.bekvon.bukkit.residence.economy.EssentialsEcoAdapter;
+//import com.bekvon.bukkit.residence.economy.IConomy5Adapter;
+//import com.bekvon.bukkit.residence.economy.IConomy6Adapter;
+//import com.bekvon.bukkit.residence.economy.RealShopEconomy;
 import com.bekvon.bukkit.residence.economy.rent.RentManager;
 import com.bekvon.bukkit.residence.economy.TransactionManager;
 import com.bekvon.bukkit.residence.event.ResidenceCommandEvent;
@@ -36,10 +36,10 @@ import com.bekvon.bukkit.residence.text.Language;
 import com.bekvon.bukkit.residence.text.help.HelpEntry;
 import com.bekvon.bukkit.residence.text.help.InformationPager;
 import com.bekvon.bukkit.residence.vaultinterface.ResidenceVaultAdapter;
-import com.earth2me.essentials.Essentials;
-import cosine.boseconomy.BOSEconomy;
-import fr.crafter.tickleman.realeconomy.RealEconomy;
-import fr.crafter.tickleman.realplugin.RealPlugin;
+//import com.earth2me.essentials.Essentials;
+//import cosine.boseconomy.BOSEconomy;
+//import fr.crafter.tickleman.realeconomy.RealEconomy;
+//import fr.crafter.tickleman.realplugin.RealPlugin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -244,14 +244,14 @@ public class Residence extends JavaPlugin {
                     }
                     if(economy == null)
                         this.loadVaultEconomy();
-                    if(economy == null)
+                    /*if(economy == null)
                         this.loadBOSEconomy();
                     if(economy == null)
                         this.loadEssentialsEconomy();
                     if(economy == null)
                         this.loadRealEconomy();
                     if(economy == null)
-                        this.loadIConomy();
+                        this.loadIConomy();*/
                     if(economy == null)
                         System.out.println("[Residence] Unable to find an economy system...");
             }
@@ -447,7 +447,7 @@ public class Residence extends JavaPlugin {
             return wmanager.getPerms(loc.getWorld().getName());
     }
 
-    private void loadIConomy()
+    /*private void loadIConomy()
     {
         Plugin p = getServer().getPluginManager().getPlugin("iConomy");
         if (p != null) {
@@ -501,7 +501,7 @@ public class Residence extends JavaPlugin {
         } else {
             Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] RealShop Economy NOT found!");
         }
-    }
+    }*/
 
     private void loadVaultEconomy()
     {

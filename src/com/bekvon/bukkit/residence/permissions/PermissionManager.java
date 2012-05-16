@@ -8,8 +8,8 @@ package com.bekvon.bukkit.residence.permissions;
 import com.bekvon.bukkit.residence.Residence;
 import com.bekvon.bukkit.residence.protection.FlagPermissions;
 import com.bekvon.bukkit.residence.vaultinterface.ResidenceVaultAdapter;
-import com.nijikokun.bukkit.Permissions.Permissions;
-import com.platymuus.bukkit.permissions.PermissionsPlugin;
+//import com.nijikokun.bukkit.Permissions.Permissions;
+//import com.platymuus.bukkit.permissions.PermissionsPlugin;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
@@ -129,30 +129,6 @@ public class PermissionManager {
             }
             else
                 Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Found Vault, but Vault reported no usable permissions system...");
-        }
-        p = server.getPluginManager().getPlugin("PermissionsBukkit");
-        if (p != null) {
-            perms = new PermissionsBukkitAdapter((PermissionsPlugin) p);
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Found PermissionsBukkit Plugin!");
-            return;
-        }
-        p = server.getPluginManager().getPlugin("bPermissions");
-        if (p != null) {
-            perms = new BPermissionsAdapter();
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Found bPermissions Plugin!");
-            return;
-        }
-        p = server.getPluginManager().getPlugin("Permissions");
-        if (p != null) {
-            if (Residence.getConfigManager().useLegacyPermissions()) {
-                perms = new LegacyPermissions(((Permissions) p).getHandler());
-                Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Found Permissions Plugin!");
-                Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Permissions running in Legacy mode!");
-            } else {
-                perms = new OrigionalPermissions(((Permissions) p).getHandler());
-                Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Found Permissions Plugin!");
-            }
-            return;
         }
         Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Permissions plugin NOT FOUND!");
     }
