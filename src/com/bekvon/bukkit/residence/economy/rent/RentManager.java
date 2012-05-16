@@ -193,7 +193,8 @@ public class RentManager {
         return (((long)days) * 24L * 60L * 60L * 1000L);
     }
 
-    private int msToDays(long ms)
+    @SuppressWarnings("unused")
+	private int msToDays(long ms)
     {
         return (int) Math.ceil(((((double)ms/1000D)/60D)/60D)/24D);
     }
@@ -394,7 +395,8 @@ public class RentManager {
         }
     }
 
-    public static RentManager load(Map<String,Object> root)
+    @SuppressWarnings("unchecked")
+	public static RentManager load(Map<String,Object> root)
     {
         RentManager rentManager = new RentManager();
         if(root!=null)

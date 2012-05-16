@@ -401,7 +401,7 @@ public class ClaimedResidence {
     }
 
     public String[] getSubzoneList() {
-        ArrayList zones = new ArrayList<String>();
+        ArrayList<String> zones = new ArrayList<String>();
         Set<String> set = subzones.keySet();
         synchronized (subzones) {
             for (String key : set) {
@@ -783,7 +783,8 @@ public class ClaimedResidence {
         return root;
     }
 
-    public static ClaimedResidence load(Map<String,Object> root, ClaimedResidence parent) throws Exception {
+    @SuppressWarnings("unchecked")
+	public static ClaimedResidence load(Map<String,Object> root, ClaimedResidence parent) throws Exception {
         ClaimedResidence res = new ClaimedResidence();
         if(root == null)
             throw new Exception("Null residence!");

@@ -11,12 +11,10 @@ import com.bekvon.bukkit.residence.protection.ResidencePermissions;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.lang.time.StopWatch;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryOpenEvent;
 import org.bukkit.event.player.PlayerBucketEmptyEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 import org.bukkit.event.player.PlayerChatEvent;
@@ -38,7 +36,6 @@ import java.util.List;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.inventory.InventoryHolder;
 
 /**
  *

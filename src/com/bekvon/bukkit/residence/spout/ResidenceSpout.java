@@ -7,7 +7,6 @@ package com.bekvon.bukkit.residence.spout;
 import com.bekvon.bukkit.residence.Residence;
 import com.bekvon.bukkit.residence.protection.ClaimedResidence;
 import com.bekvon.bukkit.residence.spout.ResidencePopup.PopupType;
-import java.util.ArrayList;
 import java.util.HashMap;
 import org.bukkit.entity.Player;
 import org.getspout.spoutapi.gui.Color;

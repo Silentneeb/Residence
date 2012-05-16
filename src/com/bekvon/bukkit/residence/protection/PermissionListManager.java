@@ -107,10 +107,10 @@ public class PermissionListManager {
 
     public Map<String,Object> save()
     {
-        Map root = new LinkedHashMap<String,Object>();
+        Map<String, Object> root = new LinkedHashMap<String,Object>();
         for(Entry<String, Map<String, FlagPermissions>> players : lists.entrySet())
         {
-            Map saveMap = new LinkedHashMap<String,Object>();
+            Map<String, Object> saveMap = new LinkedHashMap<String,Object>();
             Map<String, FlagPermissions> map = players.getValue();
             for(Entry<String, FlagPermissions> list : map.entrySet())
             {
@@ -120,7 +120,8 @@ public class PermissionListManager {
         }
         return root;
     }
-    public static PermissionListManager load(Map<String, Object> root) {
+    @SuppressWarnings("unchecked")
+	public static PermissionListManager load(Map<String, Object> root) {
         
         PermissionListManager p = new PermissionListManager();
         if(root != null)

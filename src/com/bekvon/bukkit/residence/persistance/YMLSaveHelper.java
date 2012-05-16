@@ -8,7 +8,6 @@ package com.bekvon.bukkit.residence.persistance;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
@@ -51,7 +50,8 @@ public class YMLSaveHelper {
         osw.close();
     }
 
-    public void load() throws IOException
+    @SuppressWarnings("unchecked")
+	public void load() throws IOException
     {
         FileInputStream fis = new FileInputStream(f);
         InputStreamReader isr = new InputStreamReader(fis, "UTF8");

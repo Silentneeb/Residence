@@ -1687,7 +1687,8 @@ public class Residence extends JavaPlugin {
         super.setEnabled(enabled);
     }
 
-    private void saveYml() throws IOException {
+    @SuppressWarnings("unchecked")
+	private void saveYml() throws IOException {
         File saveFolder = new File(dataFolder, "Save");
         File worldFolder = new File(saveFolder, "Worlds");
         worldFolder.mkdirs();
@@ -1722,7 +1723,8 @@ public class Residence extends JavaPlugin {
             System.out.println("[Residence] - Saved Residences...");
     }
 
-    private boolean loadYml() throws Exception
+    @SuppressWarnings("unchecked")
+	private boolean loadYml() throws Exception
     {
         File saveFolder = new File(dataFolder, "Save");
         try {
@@ -1831,7 +1833,8 @@ public class Residence extends JavaPlugin {
         }
     }
 
-    private boolean oldLoadYMLSave(File saveLoc) throws Exception {
+    @SuppressWarnings("unchecked")
+	private boolean oldLoadYMLSave(File saveLoc) throws Exception {
         if (saveLoc.isFile()) {
             YMLSaveHelper yml = new YMLSaveHelper(saveLoc);
             yml.load();

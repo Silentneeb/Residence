@@ -179,7 +179,7 @@ public class ItemList {
 
     public Map<String,Object> save()
     {
-        Map saveMap = new LinkedHashMap<String,Object>();
+        Map<String, Object> saveMap = new LinkedHashMap<String,Object>();
         saveMap.put("Type", type.toString());
         List<String> saveList = new ArrayList<String>();
         for(Material mat : list)
@@ -196,7 +196,8 @@ public class ItemList {
         return load(map,newlist);
     }
 
-    protected static ItemList load(Map<String,Object> map, ItemList newlist)
+    @SuppressWarnings("unchecked")
+	protected static ItemList load(Map<String,Object> map, ItemList newlist)
     {
         try
         {

@@ -302,7 +302,7 @@ public class ResidenceManager {
 
     public void removeAllByOwner(String owner)
     {
-        Set<Entry<String, ClaimedResidence>> set = residences.entrySet();
+        //Set<Entry<String, ClaimedResidence>> set = residences.entrySet();
         synchronized(residences)
         {
             Iterator<ClaimedResidence> it = residences.values().iterator();
@@ -444,7 +444,8 @@ public class ResidenceManager {
         return worldmap;
     }
 
-    public static ResidenceManager load(Map<String,Object> root) throws Exception
+    @SuppressWarnings("unchecked")
+	public static ResidenceManager load(Map<String,Object> root) throws Exception
     {
         ResidenceManager resm = new ResidenceManager();
         if(root==null)
@@ -471,7 +472,8 @@ public class ResidenceManager {
         return resm;
     }
 
-    public static ResidenceManager loadMap(Map<String,Object> root, ResidenceManager resm) throws Exception
+    @SuppressWarnings("unchecked")
+	public static ResidenceManager loadMap(Map<String,Object> root, ResidenceManager resm) throws Exception
     {
         if(root != null)
         {
