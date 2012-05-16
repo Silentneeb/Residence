@@ -18,6 +18,16 @@ import org.bukkit.configuration.file.FileConfiguration;
  * @author Administrator
  */
 public class ConfigManager {
+	
+	protected String serverName;
+	protected String mainWorld;
+	protected int townMinX;
+	protected int townMaxX;
+	protected int townMinY;
+	protected int townMaxY;
+	protected int townMinZ;
+	protected int townMaxZ;
+	
     protected String defaultGroup;
     protected boolean useLeases;
     protected boolean enableEconomy;
@@ -59,6 +69,15 @@ public class ConfigManager {
     }
 
     private void load(FileConfiguration config) {
+    	serverName = config.getString("Global.ServerID", "SP-smp1").toLowerCase();
+    	mainWorld = config.getString("Global.MainWorld", "Silencia2").toLowerCase();
+    	townMinX = config.getInt("Global.TownMinX", -517);
+    	townMaxX = config.getInt("Global.TownMinX", 517);
+    	townMinY = config.getInt("Global.TownMinY", 0);
+    	townMaxY = config.getInt("Global.TownMaxY", 255);
+    	townMinZ = config.getInt("Global.TownMinZ", -517);
+    	townMaxZ = config.getInt("Global.TownMinZ", 517);
+    	
         defaultGroup = config.getString("Global.DefaultGroup", "default").toLowerCase();
         adminsOnly = config.getBoolean("Global.AdminOnlyCommands", false);
         useLeases = config.getBoolean("Global.UseLeaseSystem", false);

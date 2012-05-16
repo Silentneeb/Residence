@@ -1,5 +1,14 @@
 #These are Global Settings for Residence.
 Global:
+    #Name of the server
+    ServerID: SP-smp1
+    #Main world of the server
+    MainWorld: Silencia2
+    #These are the values to determine the town.
+    TownMinX: -517
+    TownMaxY: 517
+    TownMaxZ: -517
+    TownMaxZ: 517
     # This loads the <language>.yml file in the Residence Language folder
     # All Residence text comes from this file. (NOT DONE YET)
     Language: English

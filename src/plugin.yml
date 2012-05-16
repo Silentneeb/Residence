@@ -1,19 +1,14 @@
 name: Residence
 main: com.bekvon.bukkit.residence.Residence
-version: 2.5.8
+version: 0.0.1
 description: Cuboid Residence Plugin
-author: bekvon
-softdepend: [Vault,Essentials,RealPlugin,BOSEconomy,iConomy,bPermissions,PermissionsBukkit,Permissions,WorldEdit]
+author: Silentneeb
+softdepend: [Vault,WorldEdit]
 commands:
-  res:
-    description: Manage Residences
-    usage: §c/res ? for more info
   residence:
     description: Manage Residences
     usage: §c/residence ? for more info
-  resadmin:
-    description: Residence admin functions.
-    usage: §c/res ? or /resadmin ? for more info
+    aliases: [res, resadmin]
   resreload:
     description: Reload the entire residence plugin.
     usage: §c/resreload
@@ -26,6 +21,14 @@ commands:
   resworld:
     description: §cRemoves every residence in a world.
     usage: §c/resworld remove [world]
+  home:
+    description: Return to your plot.
+    permission: sentials.tp.home
+    usage: /home
+  visit:
+    description: Visit a player's lot.
+    permission: sentials.tp.visit
+    usage: /visit (player/lot #)
 permissions:
   residence.admin:
     description: Gives you access to /resadmin

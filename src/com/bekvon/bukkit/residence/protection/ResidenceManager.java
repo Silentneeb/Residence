@@ -8,6 +8,7 @@ package com.bekvon.bukkit.residence.protection;
 import com.bekvon.bukkit.residence.Residence;
 import com.bekvon.bukkit.residence.event.ResidenceCreationEvent;
 import com.bekvon.bukkit.residence.event.ResidenceDeleteEvent;
+import com.bekvon.bukkit.residence.event.ResidenceRenameEvent;
 import com.bekvon.bukkit.residence.event.ResidenceDeleteEvent.DeleteCause;
 import com.bekvon.bukkit.residence.permissions.PermissionGroup;
 import com.bekvon.bukkit.residence.text.help.InformationPager;
@@ -499,6 +500,11 @@ public class ResidenceManager {
 
     public boolean renameResidence(String oldName, String newName)
     {
+    	ResidenceRenameEvent resevent = new ResidenceRenameEvent(null, oldName, newName, null);
+    	Residence.getServ().getPluginManager().callEvent(resevent);
+        if (resevent.isCancelled()) {
+            return false;
+        }
         return this.renameResidence(null, oldName, newName, true);
     }
 
@@ -514,6 +520,12 @@ public class ResidenceManager {
         {
             if(player!=null)
                 player.sendMessage("§c"+Residence.getLanguage().getPhrase("InvalidResidence"));
+            return false;
+        }
+        
+        ResidenceRenameEvent resevent = new ResidenceRenameEvent(player, oldName, newName, res);
+    	Residence.getServ().getPluginManager().callEvent(resevent);
+        if (resevent.isCancelled()) {
             return false;
         }
         if(res.getPermissions().hasResidencePermission(player, true) || resadmin)
