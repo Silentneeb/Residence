@@ -6,17 +6,12 @@ package com.bekvon.bukkit.residence;
 
 import com.bekvon.bukkit.residence.chat.ChatChannel;
 import com.bekvon.bukkit.residence.chat.ChatManager;
-//import com.bekvon.bukkit.residence.economy.BOSEAdapter;
 import com.bekvon.bukkit.residence.protection.CuboidArea;
 import com.bekvon.bukkit.residence.protection.LeaseManager;
 import com.bekvon.bukkit.residence.listeners.ResidenceBlockListener;
 import com.bekvon.bukkit.residence.listeners.ResidencePlayerListener;
 import com.bekvon.bukkit.residence.listeners.ResidenceEntityListener;
 import com.bekvon.bukkit.residence.economy.EconomyInterface;
-//import com.bekvon.bukkit.residence.economy.EssentialsEcoAdapter;
-//import com.bekvon.bukkit.residence.economy.IConomy5Adapter;
-//import com.bekvon.bukkit.residence.economy.IConomy6Adapter;
-//import com.bekvon.bukkit.residence.economy.RealShopEconomy;
 import com.bekvon.bukkit.residence.economy.rent.RentManager;
 import com.bekvon.bukkit.residence.economy.TransactionManager;
 import com.bekvon.bukkit.residence.event.ResidenceCommandEvent;
@@ -36,10 +31,6 @@ import com.bekvon.bukkit.residence.text.Language;
 import com.bekvon.bukkit.residence.text.help.HelpEntry;
 import com.bekvon.bukkit.residence.text.help.InformationPager;
 import com.bekvon.bukkit.residence.vaultinterface.ResidenceVaultAdapter;
-//import com.earth2me.essentials.Essentials;
-//import cosine.boseconomy.BOSEconomy;
-//import fr.crafter.tickleman.realeconomy.RealEconomy;
-//import fr.crafter.tickleman.realplugin.RealPlugin;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -48,7 +39,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.nio.charset.CharsetEncoder;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -56,7 +46,6 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-//import net.minecraft.server.FontAllowedCharacters;
 import net.minecraft.server.SharedConstants;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -244,14 +233,6 @@ public class Residence extends JavaPlugin {
                     }
                     if(economy == null)
                         this.loadVaultEconomy();
-                    /*if(economy == null)
-                        this.loadBOSEconomy();
-                    if(economy == null)
-                        this.loadEssentialsEconomy();
-                    if(economy == null)
-                        this.loadRealEconomy();
-                    if(economy == null)
-                        this.loadIConomy();*/
                     if(economy == null)
                         System.out.println("[Residence] Unable to find an economy system...");
             }
@@ -281,7 +262,6 @@ public class Residence extends JavaPlugin {
                 pm.registerEvents(plistener, this);
                 pm.registerEvents(elistener, this);
 
-                //pm.registerEvent(Event.Type.WORLD_LOAD, wlistener, Priority.NORMAL, this);
                 if(cmanager.enableSpout())
                 {
                     slistener = new ResidenceSpoutListener();
@@ -446,62 +426,6 @@ public class Residence extends JavaPlugin {
         else
             return wmanager.getPerms(loc.getWorld().getName());
     }
-
-    /*private void loadIConomy()
-    {
-        Plugin p = getServer().getPluginManager().getPlugin("iConomy");
-        if (p != null) {
-            if(p.getDescription().getVersion().startsWith("6"))
-            {
-                economy = new IConomy6Adapter((com.iCo6.iConomy)p);
-            }
-            else if(p.getDescription().getVersion().startsWith("5"))
-            {
-                economy = new IConomy5Adapter();
-            }
-            else
-            {
-                Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] UNKNOWN iConomy version!");
-                return;
-            }
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Successfully linked with iConomy! Version: " + p.getDescription().getVersion());
-        } else {
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] iConomy NOT found!");
-        }
-    }
-
-    private void loadBOSEconomy()
-    {
-        Plugin p = getServer().getPluginManager().getPlugin("BOSEconomy");
-        if (p != null) {
-            economy = new BOSEAdapter((BOSEconomy)p);
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Successfully linked with BOSEconomy!");
-        } else {
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] BOSEconomy NOT found!");
-        }
-    }
-
-    private void loadEssentialsEconomy()
-    {
-        Plugin p = getServer().getPluginManager().getPlugin("Essentials");
-        if (p != null) {
-            economy = new EssentialsEcoAdapter((Essentials)p);
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Successfully linked with Essentials Economy!");
-        } else {
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Essentials Economy NOT found!");
-        }
-    }
-
-    private void loadRealEconomy()
-    {
-        Plugin p = getServer().getPluginManager().getPlugin("RealPlugin");
-        if (p != null) {
-            economy = new RealShopEconomy(new RealEconomy((RealPlugin)p));
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] Successfully linked with RealShop Economy!");
-        } else {
-            Logger.getLogger("Minecraft").log(Level.INFO, "[Residence] RealShop Economy NOT found!");
-        }
-    }*/
 
     private void loadVaultEconomy()
     {
