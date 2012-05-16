@@ -336,6 +336,17 @@ public class Residence extends JavaPlugin {
 						this, rentExpire, rentint, rentint);
 			}
 			
+			//init listeners  TODO
+			
+			//init commands
+			//System.out.println("commands init");
+			getCommand("home").setExecutor(new HomeExecutor());
+			//System.out.println("home command loaded");
+			getCommand("visit").setExecutor(new VisitExecutor());
+			//System.out.println("visit command loaded");
+			getCommand("residence").setExecutor(new ResExecutor());
+			//System.out.println("res command loaded");
+			//System.out.println("commands: done");
 			
 			Logger.getLogger("Minecraft")
 					.log(
@@ -352,23 +363,7 @@ public class Residence extends JavaPlugin {
 			Logger.getLogger(Residence.class.getName()).log(Level.SEVERE, null,
 					ex);
 		}
-		//init listeners  TODO
 		
-		//init commands
-		System.out.println("commands init");
-		getCommand("home").setExecutor(new HomeExecutor());
-		System.out.println("home command loaded");
-		//getCommand("visit").setExecutor(new VisitExecutor());
-		System.out.println("visit command loaded");
-		try{
-		getCommand("residence").setExecutor(new ResExecutor());
-		System.out.println("res command loaded");
-		}
-		catch (Exception e)
-		{
-			System.out.println("res command failed to load");
-		}
-		System.out.println("commands: done");
 		
 	}
 
