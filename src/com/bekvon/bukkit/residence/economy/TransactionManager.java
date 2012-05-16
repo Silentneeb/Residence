@@ -121,6 +121,7 @@ public class TransactionManager {
                 player.sendMessage("§c"+Residence.getLanguage().getPhrase("NoPermission"));
                 return;
             }
+
         }
         if(isForSale(areaname))
         {
