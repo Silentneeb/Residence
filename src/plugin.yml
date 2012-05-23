@@ -29,6 +29,10 @@ commands:
     description: Visit a player's lot.
     permission: sentials.tp.visit
     usage: /visit (player/lot #)
+  market:
+    description: Buy and sell lots.
+    #permission: residence.market
+    usage: /market (arg)
 permissions:
   residence.admin:
     description: Gives you access to /resadmin

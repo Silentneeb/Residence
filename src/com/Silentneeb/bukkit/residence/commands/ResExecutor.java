@@ -5,6 +5,7 @@
  * @last_modified 2012-05-16
  * @description 
  *
+ *TODO break market out into its own command
  *
  */
 package com.Silentneeb.bukkit.residence.commands;
