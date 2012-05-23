@@ -16,6 +16,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import com.bekvon.bukkit.residence.Residence;
 import com.bekvon.bukkit.residence.event.ResidenceCommandEvent;
 
 public class HomeExecutor implements CommandExecutor {
@@ -35,7 +36,7 @@ public class HomeExecutor implements CommandExecutor {
 		{
 			//TODO: finish, will need some API work first.
 			player = (Player)sender;
-			player.sendMessage("TODO");
+			Residence.getResidenceManager().getByOwner(player.getName()).tpToResidence(player, player, true);
 			
 			return true;
 		}

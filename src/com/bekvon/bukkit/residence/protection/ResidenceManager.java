@@ -83,6 +83,23 @@ public class ResidenceManager {
         return res;
     }
 
+    public ClaimedResidence getByOwner(String pname){
+    	//TODO:  Add compatibility for multiple homes
+    	if(pname.isEmpty())
+    		return null;
+    	
+    	Set<Entry<String, ClaimedResidence>> set = residences.entrySet();
+        ClaimedResidence res = null;
+        synchronized (residences) {
+            for (Entry<String, ClaimedResidence> key : set) {
+                res = key.getValue();
+                if (res.getOwner().equalsIgnoreCase(pname) ) {
+                    break;
+                }
+            }
+        }
+    	return res;
+    }
     public String getNameByLoc(Location loc) {
         if(loc==null)
             return null;

@@ -42,7 +42,6 @@ import com.Silentneeb.bukkit.residence.commands.MarketExecutor;
 import com.Silentneeb.bukkit.residence.commands.ReloadExecutor;
 import com.Silentneeb.bukkit.residence.commands.ResExecutor;
 import com.Silentneeb.bukkit.residence.commands.VisitExecutor;
-import com.avaje.ebean.enhance.agent.MarkerField;
 import com.bekvon.bukkit.residence.chat.ChatChannel;
 import com.bekvon.bukkit.residence.chat.ChatManager;
 import com.bekvon.bukkit.residence.economy.EconomyInterface;
