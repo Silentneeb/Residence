@@ -13,8 +13,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import com.bekvon.bukkit.residence.Residence;
 import com.bekvon.bukkit.residence.event.ResidenceCommandEvent;
 
 public class VisitExecutor implements CommandExecutor {
@@ -30,21 +32,17 @@ public class VisitExecutor implements CommandExecutor {
 			return true;
 		
 		Player player = null;
-		if (sender instanceof Player) {
-			player = (Player) sender;
+		if(sender instanceof Player)
+		{
+			player = (Player)sender;
+			Residence.getResidenceManager().getByOwner(player.getName()).tpToResidence(player, player, true);
+			
+			return true;
 		}
-		if (player == null){
+		else if(sender instanceof ConsoleCommandSender){
 			sender.sendMessage("Ingame only");
 			return true;
 		}
-		
-		if(args.length != 1){
-			return false;
-		}
-		
-		//TODO
-		player.sendMessage("TODO");
-		
 		return true;
 	}
 
