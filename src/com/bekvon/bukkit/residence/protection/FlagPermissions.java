@@ -58,6 +58,7 @@ public class FlagPermissions {
         addFlag("bucket");
         addFlag("bank");
         addFlag("rename");
+        addFlag("shear");
         addResidenceOnlyFlag("pvp");
         addResidenceOnlyFlag("damage");
         addResidenceOnlyFlag("monsters");
